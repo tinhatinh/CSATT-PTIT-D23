@@ -1,0 +1,175 @@
+===============================================
+            FLAPPY GAMEFI - LUẬT CHƠI
+===============================================
+
+📜 MỤC LỤC
+───────────────────────────────────────────────
+1. Giới thiệu
+2. Cách chơi
+3. Hệ thống điểm và cấp độ
+4. Hệ thống mũ NFT
+5. Phần thưởng và giá trị
+6. Lưu ý quan trọng
+
+===============================================
+1. GIỚI THIỆU
+===============================================
+
+Flappy GameFi là một game phiêu lưu kết hợp với công nghệ blockchain,
+cho phép người chơi kiếm được NFT mũ độc đáo và nhận phần thưởng ETH
+thông qua việc chinh phục các cấp độ khó khăn.
+
+🎮 Đặc điểm nổi bật:
+• Gameplay đơn giản nhưng hấp dẫn
+• Hệ thống NFT mũ độc đáo
+• Phần thưởng ETH thực tế
+• Mỗi mũ tương ứng với một cấp độ thành tích
+
+===============================================
+2. CÁCH CHƠI
+===============================================
+
+🎯 Mục tiêu:
+Điều khiển con chim bay qua các cột ống nước mà không va chạm.
+
+🎮 Điều khiển:
+• Nhấn chuột hoặc phím cách để chim nhảy lên
+• Nhả để chim rơi xuống do trọng lực
+• Cố gắng bay qua càng nhiều cột càng tốt
+
+⚠️ Kết thúc game:
+Game sẽ kết thúc khi:
+• Chim va chạm với cột ống nước
+• Chim chạm đất hoặc bay ra ngoài màn hình
+
+💰 Phí chơi:
+• Mỗi ván game cần 1 ETH để tham gia
+• Phí được sử dụng để trả thưởng cho người chơi
+
+===============================================
+3. HỆ THỐNG ĐIỂM VÀ CẤP ĐỘ
+===============================================
+
+📊 Cách tính điểm:
+• Mỗi cột ống nước vượt qua được tính 1 điểm
+• Điểm số được cộng dồn trong suốt quá trình chơi
+
+🏆 Các cấp độ thành tích:
+───────────────────────────────────────────────
+Cấp độ 5  → Mũ Xám      (Gray)
+Cấp độ 10 → Mũ Xanh Lá  (Green)
+Cấp độ 25 → Mũ Xanh Dương (Blue)
+Cấp độ 50 → Mũ Tím      (Purple)
+Cấp độ 75 → Mũ Cam      (Orange)
+Cấp độ 100→ Mũ Đỏ      (Red)
+
+🎁 Cách nhận mũ:
+• Khi đạt được điểm số tương ứng với cấp độ
+• Mỗi cấp độ chỉ nhận được 1 lần duy nhất
+• Mũ sẽ được tự động mint dưới dạng NFT
+
+===============================================
+4. HỆ THỐNG MŨ NFT
+===============================================
+
+🎩 Đặc tính mũ NFT:
+• Mỗi mũ là một NFT độc nhất trên blockchain
+• Có màu sắc tương ứng với cấp độ đạt được
+• Có thể đội mũ để thay đổi giao diện trong game
+• Có thể bán lại để nhận ETH
+
+📝 Thông tin mũ:
+• Token ID: Mã định danh duy nhất
+• Level: Cấp độ thành tích tương ứng
+• Color: Màu sắc đặc trưng của cấp độ
+
+🔄 Quản lý mũ:
+• Xem danh sách mũ đã sở hữu
+• Đội mũ để thay đổi giao diện
+• Bán mũ để nhận ETH
+
+===============================================
+5. PHẦN THƯỞNG VÀ GIÁ TRỊ
+===============================================
+
+💰 Giá trị bán lại mũ:
+───────────────────────────────────────────────
+Level 5   → 0.3 ETH
+Level 10  → 0.6 ETH
+Level 25  → 1.0 ETH
+Level 50  → 1.6 ETH
+Level 75  → 2.3 ETH
+Level 100 → 3.0 ETH
+
+💡 Lợi ích:
+• Mũ cấp độ cao có giá trị bán lại cao hơn
+• Có thể thu lại vốn từ phí chơi
+• Lợi nhuận từ việc chinh phục cấp độ khó
+
+===============================================
+6. LƯU Ý QUAN TRỌNG
+===============================================
+
+⚠️ Cần có:
+• Ví MetaMask đã cài đặt
+• Số dư ETH đủ để trả phí chơi (1 ETH/game)
+• Kết nối internet ổn định
+
+🔒 Bảo mật:
+• Luôn kiểm tra địa chỉ ví trước khi giao dịch
+• Không chia sẻ private key
+• Xác nhận kỹ trước khi phê duyệt giao dịch
+
+📌 Mẹo chơi:
+• Luyện tập để làm quen với điều khiển
+• Tập trung vào khoảng cách giữa các cột
+• Giữ bình tĩnh, không vội vàng
+• Đặt mục tiêu chinh phục từng cấp độ
+
+🎯 Chiến lược:
+• Bắt đầu với mục tiêu thấp (level 5, 10)
+• Tích lũy kinh nghiệm trước khi chinh phục level cao
+• Cân nhắc giữ mũ để đội hoặc bán để thu vốn
+
+===============================================
+THÔNG TIN HỢP ĐỒNG
+===============================================
+
+📍 Địa chỉ hợp đồng:
+• FlappyGame: Admin thêm
+• FlappyHatNFT: Admin thêm
+
+📝 Chức năng chính:
+• playGame(): Bắt đầu game (trả 1 ETH)
+• submitScore(): Nộp điểm số
+• sellHat(tokenId): Bán mũ NFT
+• approve(): Phê duyệt bán mũ
+
+===============================================
+HỖ TRỢ
+===============================================
+
+🆘 Nếu gặp vấn đề:
+• Kiểm tra kết nối MetaMask
+• Đảm bảo đủ ETH trong ví
+• Làm mới trang và thử lại
+• Liên hệ hỗ trợ nếu cần
+
+📞 Kênh hỗ trợ:
+• Discord: [Link Discord]
+• Telegram: [Link Telegram]
+• Email: support@flappygamefi.com
+
+===============================================
+CẢM ƠN VÀ CHÚC BẠN CHƠI VUI!
+===============================================
+
+Chúc bạn có những trải nghiệm tuyệt vời với Flappy GameFi!
+Hãy chinh phục các cấp độ và sưu tầm những chiếc mũ NFT độc đáo!
+
+🎮🎩💰
+
+===============================================
+Phiên bản: 1.0
+Ngày cập nhật: 19/11/2025
+===============================================

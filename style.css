@@ -1,0 +1,415 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #87CEEB 0%, #E0F7FF 50%, #B3E0FF 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Add cute cloud decorations */
+body::before {
+    content: '';
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 100px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 60px 20px 0 0 rgba(255, 255, 255, 0.8),
+                30px -20px 0 0 rgba(255, 255, 255, 0.8);
+    z-index: -1;
+    animation: float 8s ease-in-out infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 30%;
+    right: 15%;
+    width: 120px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 70px 25px 0 0 rgba(255, 255, 255, 0.8),
+                35px -15px 0 0 rgba(255, 255, 255, 0.8);
+    z-index: -1;
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #FF6B6B;
+    text-shadow: 3px 3px 0 #FFD166;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -10px;
+    font-size: 1.5em;
+    transform: rotate(15deg);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(15deg); }
+    50% { transform: translateY(-10px) rotate(15deg); }
+}
+
+#game-canvas {
+    background-color: #87CEEB;
+    border: 4px solid #FF9AA2;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to bottom, #89CFF0 0%, #B3E0FF 100%);
+}
+
+#wallet-section {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #FF9AA2;
+    border: 3px solid #FFD166;
+    color: #fff;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 0 #E07A5F;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #E07A5F;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #E07A5F;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:hover::after {
+    opacity: 1;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 3px solid #FF9AA2;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+#game-over h2 {
+    color: #FF6B6B;
+    margin-top: 0;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#final-score {
+    font-weight: bold;
+    color: #4ECDC4;
+    font-size: 1.5em;
+}
+
+/* Container cho danh sách mũ */
+#hats-list {
+    margin: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* Thêm class cho từng cấp độ mũ */
+.hat-level-1 { color: #808080; } /* Gray */
+.hat-level-2 { color: #00FF00; } /* Green */
+.hat-level-3 { color: #0000FF; } /* Blue */
+.hat-level-4 { color: #800080; } /* Purple */
+.hat-level-5 { color: #FFA500; } /* Orange */
+.hat-level-6 { color: #FF0000; } /* Red */
+.hats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Style cho từng item mũ */
+.hat-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.hat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hat-item.equipped {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px #4CAF50;
+}
+
+.hat-preview {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: transparent !important;
+}
+
+.hat-preview::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background: inherit;
+    border-radius: 50% 50% 0 0;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 0 0 currentColor;
+    color: inherit;
+}
+
+.hat-level {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.hat-info {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.hat-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.hat-level-text {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.hat-actions {
+    display: flex;
+    padding: 10px 15px;
+    gap: 10px;
+}
+
+.hat-actions button {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.hat-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.hat-actions .equip-hat {
+    background-color: #3498db;
+}
+
+.hat-actions .equip-hat:hover {
+    background-color: #2980b9;
+}
+
+.hat-actions .sell-hat {
+    background-color: #e74c3c;
+}
+
+.hat-actions .sell-hat:hover {
+    background-color: #c0392b;
+}
+
+/* Thông báo */
+.no-hats {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Thông báo toast */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0;
+    animation: slideIn 0.3s ease-out forwards;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification.success {
+    background-color: #2ecc71;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+.notification.info {
+    background-color: #3498db;
+}
+
+.notification.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+}
+
+#contract-info {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #666;
+}
+/* Developer Info Section */
+.developer-info {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.developer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.social-link {
+    background: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-link:hover .social-logo {
+    transform: scale(1.1);
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird GameFi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/2vC6tPJq2vf5ulUB9xqnZRjEkKxL3GJXOLU0vOsH9LjTngdY3wJxZPpQj90yK2k1Q">
+</head>
+<body>
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+        <div class="cloud cloud5"></div>
+        <div class="cloud cloud6"></div>
+    </div>
+    <div class="container">
+        <h1>Flappy Bird GameFi</h1>
+        
+        <div id="wallet-section">
+            <button id="connect-wallet">Kết nối ví</button>
+            <p id="wallet-address"></p>
+        </div>
+
+        <div id="game-section">
+            <canvas id="game-canvas" width="320" height="480"></canvas>
+            <div id="game-over" style="display: none;">
+                <h2>Kết thúc!</h2>
+                <p>Điểm của bạn: <span id="final-score">0</span></p>
+                <button id="restart-btn">Chơi lại (1 ETH)</button>
+            </div>
+        </div>
+
+        <div id="game-controls">
+            <button id="start-game" disabled>Bắt đầu (1 ETH)</button>
+            <button id="submit-score" disabled>Gửi điểm</button>
+        </div>
+
+        <div id="inventory">
+            <h2>Mũ của tôi</h2>
+            <div id="hats-list"></div>
+        </div>
+
+        <div id="contract-info">
+            <p>Hợp đồng game: <span id="game-address" class="contract-address"></span></p>
+            <p>Hợp đồng NFT: <span id="nft-address" class="contract-address"></span></p>
+        </div>
+    </div>
+    
+    <!-- Tải ethers.js từ jsdelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    
+    <!-- Script khởi tạo -->
+    <script>
+        // Kiểm tra xem ethers đã được tải chưa
+        if (typeof ethers === 'undefined') {
+            console.error('Lỗi: Không thể tải thư viện ethers.js');
+            alert('Lỗi: Không thể tải thư viện cần thiết. Vui lòng thử lại sau.');
+        } else {
+            console.log('ethers.js đã được tải thành công');
+            console.log('Phiên bản ethers:', ethers.version);
+        }
+
+        // Kiểm tra MetaMask
+        if (typeof window.ethereum === 'undefined') {
+            alert('Vui lòng cài đặt MetaMask để chơi game!');
+        } else {
+            console.log('MetaMask đã được phát hiện');
+        }
+    </script>
+    
+    <!-- Tải app.js sau cùng -->
+    <script src="app.js"></script>
+    <footer class="developer-info">
+    <div class="developer-links">
+        <a href="https://www.facebook.com/winterboyy" target="_blank" class="social-link" title="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="social-logo">
+        </a>
+        <a href="https://github.com/tinhatinh" target="_blank" class="social-link" title="GitHub">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="social-logo">
+        </a>
+        <a href="https://www.tiktok.com/@danh_pachirisu" target="_blank" class="social-link" title="TikTok">
+            <img src="https://img.icons8.com/?size=100&id=oKHadYScUe2I&format=png&color=000000" alt="TikTok" class="social-logo">
+        </a>
+    </div>
+    <p class="copyright">© 2025 Flappy Bird GameFi - Developed by Danh Phan</p>
+    </footer>
+</body>
+</html>
