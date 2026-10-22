@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Hardhat & Foundry & Truffle
+artifacts/
+cache/
+typechain/
+typechain-types/
+out/
+broadcast/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.secret
+*.key
+
+# Temporary & Lock Files
+~$*.docx
+~$*.doc
+*.tmp
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

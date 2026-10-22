@@ -8,10 +8,10 @@ contract Wallet {
     constructor() payable {
         owner = msg.sender;
     }
-
     function transfer(address payable _to, uint _amount) public {
-        // Xác thực người gửi bằng tx.origin thay vì msg.sender.
-        require(msg.sender == owner, "Error: Not the owner");
+        // LỖ HỔNG BẢO MẬT: Xác thực người gửi bằng tx.origin thay vì msg.sender.
+        // tx.origin là địa chỉ khởi tạo giao dịch ban đầu, cho phép hợp đồng trung gian lừa đảo (phishing)
+        require(tx.origin == owner, "Error: Not the owner");
 
         (bool sent, ) = _to.call{value: _amount}("");
         require(sent, "Failed to send Ether");
